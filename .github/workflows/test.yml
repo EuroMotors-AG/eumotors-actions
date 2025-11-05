@@ -1,0 +1,42 @@
+# name: Test
+# description: Run unit and integration tests using pnpm test command.
+# icon: beaker
+# color: green
+
+# ============================================================
+# EuroMotors AG - Workflow Template: Test
+# ------------------------------------------------------------
+# Purpose:
+#   Runs automated tests using the project’s test framework.
+#   Ensures application stability and reliability before merge.
+# ============================================================
+
+name: Test
+on:
+  push:
+    branches: [$default-branch]
+  pull_request:
+    branches: [$default-branch]
+
+jobs:
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build project
+        run: pnpm build
+
+      - name: Run tests
+        run: pnpm test
