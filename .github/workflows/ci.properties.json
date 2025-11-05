@@ -1,0 +1,7 @@
+{
+  "name": "CI (Lint + Build + Test)",
+  "description": "Run lint, build, and test jobs sequentially using pnpm.",
+  "iconName": "octicon workflow",
+  "categories": ["TypeScript", "CI"],
+  "filePatterns": ["package.json$"]
+}
