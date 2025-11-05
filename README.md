@@ -65,3 +65,20 @@ updates:
 
 >[!NOTE]
 >Dependabot PRs must pass the CI checks before merge, as enforced by branch protection rules.
+
+
+---
+
+## Versioning & Releases
+
+EuroMotors AG tags all stable workflow versions using semantic versioning.  
+When referencing workflows, prefer using version tags instead of branches:
+
+```yaml
+uses: euromotors-ag/eumotors-actions/.github/workflows/ci.yml@v1
+@v1 → latest stable major version
+
+@v1.0.0 → specific release snapshot
+
+@main → development (not recommended for production)
+```
