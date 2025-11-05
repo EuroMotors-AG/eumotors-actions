@@ -1,0 +1,39 @@
+# name: Build
+# description: Compile and validate TypeScript/React projects using pnpm.
+# icon: check-circle
+# color: blue
+
+# ============================================================
+# EuroMotors AG - Workflow Template: Build
+# ------------------------------------------------------------
+# Purpose:
+#   Compiles and validates TypeScript/React projects.
+#   Confirms that the project builds successfully before merge.
+# ============================================================
+
+name: Build
+on:
+  push:
+    branches: [$default-branch]
+  pull_request:
+    branches: [$default-branch]
+
+jobs:
+  build:
+    name: Build Project
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build project
+        run: pnpm build
