@@ -1,0 +1,7 @@
+{
+  "name": "Lint",
+  "description": "Run ESLint and code style checks for TypeScript/React projects.",
+  "iconName": "octicon code",
+  "categories": ["TypeScript", "JavaScript"],
+  "filePatterns": ["package.json$"]
+}
