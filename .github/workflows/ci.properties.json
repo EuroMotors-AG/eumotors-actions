@@ -1,6 +1,6 @@
 {
   "name": "CI (Lint + Build + Test)",
-  "description": "Run lint, build, and test jobs sequentially using pnpm.",
+  "description": "Run lint, build, and test jobs sequentially using pnpm, with Google Chat notifications on success or failure.",
   "iconName": "octicon workflow",
   "categories": ["TypeScript", "CI"],
   "filePatterns": ["package.json$"]
