@@ -1,0 +1,7 @@
+{
+  "name": "Test",
+  "description": "Run unit/integration tests via pnpm test.",
+  "iconName": "octicon beaker",
+  "categories": ["TypeScript", "JavaScript"],
+  "filePatterns": ["package.json$"]
+}
