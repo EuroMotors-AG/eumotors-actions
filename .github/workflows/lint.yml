@@ -1,0 +1,39 @@
+# name: Lint
+# description: Run ESLint and code style checks for TypeScript and React code.
+# icon: code
+# color: yellow
+
+# ============================================================
+# EuroMotors AG - Workflow Template: Lint
+# ------------------------------------------------------------
+# Purpose:
+#   Runs code style and lint checks on every push and pull request.
+#   Ensures consistent formatting and clean TypeScript code.
+# ============================================================
+
+name: Lint
+on:
+  push:
+    branches: [$default-branch]
+  pull_request:
+    branches: [$default-branch]
+
+jobs:
+  lint:
+    name: Lint Codebase
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run linter
+        run: pnpm lint
