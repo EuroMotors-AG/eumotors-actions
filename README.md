@@ -1,33 +1,36 @@
-# EuroMotors AG – Workflow Templates
+# EuroMotors AG – Reusable Workflows
 
-This folder contains the **official CI and automation workflow templates** used across all **EuroMotors AG** repositories.  
-They define our standardized **GitHub Actions** pipelines for code quality, builds, testing, and dependency maintenance.
+This repository hosts the **official reusable GitHub Actions workflows**
+used across all **EuroMotors AG** repositories.  
+They standardize CI/CD for code quality, builds, tests, and deployments.
 
 ---
 
 ## Overview
 
-EuroMotors provides **five reusable and recommended workflow templates**:
+EuroMotors provides **five reusable and recommended workflows**:
 
-| 🔧 Template | 📝 Description | ✅ Recommended Use |
+| 🔧 Workflow | 📝 Description | ✅ Recommended Use |
 |-------------|----------------|--------------------|
-| 🧩 **ci.yml** | Runs all core jobs: **Lint → Build → Test** in sequence. | ✅ Default choice for most repositories. |
-| 🧱 **build.yml** | Compiles and validates **TypeScript/React** projects. | For projects that only need build verification. |
-| 🧹 **lint.yml** | Runs **ESLint** and formatting checks for TypeScript/React codebases. | For lightweight or static repositories. |
-| 🧪 **test.yml** | Executes **unit and integration tests** using `pnpm test`. | For backend or library testing. |
-| 🤖 **dependabot.yml** | Keeps dependencies and GitHub Actions versions up-to-date automatically. | ✅ Active in all repositories. |
+| 🧩 **ci.yml** | Runs core jobs — **Lint → Build → Test** in sequence. | Default choice for most repositories. |
+| 🧱 **build.yml** | Compiles and validates **TypeScript/React** projects. | For repos needing only build verification. |
+| 🧹 **lint.yml** | Runs **ESLint** and formatting checks. | For lightweight or static repositories. |
+| 🧪 **test.yml** | Executes **unit/integration tests** via `pnpm test`. | For backend or shared libraries. |
+| 🤖 **dependabot.yml** | Automates dependency and Actions updates. | Active in all repositories. |
 
 ---
 
-## How to Use
+## Usage
 
-When creating a new repository in the **EuroMotors AG** organization:
+In any EuroMotors repository, reference these workflows with `uses:`:
 
-1. Navigate to the **Actions** tab.  
-2. Click **New workflow**.  
-3. Under **“By EuroMotors AG”**, choose one of the templates (preferably **CI (Lint + Build + Test)**).  
-4. Click **Configure** → **Commit changes**.  
-5. GitHub automatically places the file under `.github/workflows/`.
+```yaml
+jobs:
+  ci:
+    uses: euromotors-ag/eumotors-actions/.github/workflows/ci.yml@v1
+    secrets: inherit
+
+```
 
 Once committed, workflows run automatically on every **push** or **pull request** to your default branch.
 
