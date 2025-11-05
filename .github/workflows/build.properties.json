@@ -1,0 +1,7 @@
+{
+  "name": "Build",
+  "description": "Compile and validate TypeScript/React projects using pnpm.",
+  "iconName": "octicon check-circle",
+  "categories": ["TypeScript", "JavaScript"],
+  "filePatterns": ["package.json$"]
+}
